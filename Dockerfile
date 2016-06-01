@@ -23,6 +23,8 @@ ADD NuGet.exe /tmp/NuGet.exe
 ADD Microsoft.Build.dll /tmp/Microsoft.Build.dll
 ADD docker.config /etc/default/docker
 
+RUN apt-get install -y php5-curl php5-mcrypt
+
 EXPOSE 9090
 
 CMD bash /tmp/buildagentsetup.sh
