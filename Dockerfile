@@ -23,7 +23,13 @@ ADD NuGet.exe /tmp/NuGet.exe
 ADD Microsoft.Build.dll /tmp/Microsoft.Build.dll
 ADD docker.config /etc/default/docker
 
-RUN apt-get install -y php5-curl php5-mcrypt
+RUN apt-get install -y php5-curl
+RUN apt-get update
+RUN apt-get install -y php5-mcrypt
+
+RUN php5enmod mcrypt
+
+RUN apt-get upgrade -y
 
 EXPOSE 9090
 
